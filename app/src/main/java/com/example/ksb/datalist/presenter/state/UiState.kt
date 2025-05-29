@@ -1,6 +1,5 @@
 package com.example.ksb.datalist.presenter.state
 
-import com.example.ksb.datalist.data.model.PostDtoItem
 import com.example.ksb.datalist.domain.model.Post
 
 sealed class UiState {

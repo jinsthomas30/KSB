@@ -1,6 +1,5 @@
 package com.example.ksb.datalist.domain.usecase
 
-import com.example.ksb.datalist.data.model.PostDtoItem
 import com.example.ksb.datalist.domain.model.Post
 import com.example.ksb.datalist.domain.repository.DataRepository
 import com.example.ksb.datalist.presenter.state.NetworkState

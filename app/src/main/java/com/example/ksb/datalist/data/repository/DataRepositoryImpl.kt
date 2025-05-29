@@ -1,6 +1,5 @@
 package com.example.ksb.datalist.data.repository
 
-import com.example.ksb.datalist.data.model.PostDtoItem
 import com.example.ksb.datalist.data.model.toPostDtoItem
 import com.example.ksb.datalist.data.remote.ApiService
 import com.example.ksb.datalist.domain.model.Post
