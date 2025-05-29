@@ -4,7 +4,6 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import androidx.navigation.compose.rememberNavController
 import com.example.ksb.datalist.domain.model.Post
 import com.example.ksb.datalist.domain.usecase.DataUseCase
 import com.example.ksb.datalist.presenter.screen.DataScreen
@@ -32,7 +31,7 @@ class DataScreenTest {
     @Test
     fun dataScreen_displaysLoadingState() {
         composeTestRule.setContent {
-            DataScreen(navController = rememberNavController(), dataViewModel = dataViewModel)
+            DataScreen(dataViewModel = dataViewModel, onItemClick = {})
         }
         dataViewModel.setUiState(UiState.Loading)
 
@@ -44,7 +43,7 @@ class DataScreenTest {
     @Test
     fun dataScreen_displaysErrorState() {
         composeTestRule.setContent {
-            DataScreen(navController = rememberNavController(), dataViewModel = dataViewModel)
+            DataScreen(dataViewModel = dataViewModel, onItemClick = {})
         }
 
         val errorMessage = "An error occurred"
@@ -55,14 +54,14 @@ class DataScreenTest {
             .assertIsDisplayed()
     }
 
-   @Test
-   fun dataScreen_displaySuccessState(){
-       composeTestRule.setContent {
-           DataScreen(navController = rememberNavController(),dataViewModel)
-       }
-       val post = listOf(Post(1,"Test Title","Test Body"))
-       dataViewModel.setUiState(UiState.Success(post))
+    @Test
+    fun dataScreen_displaySuccessState() {
+        composeTestRule.setContent {
+            DataScreen(dataViewModel = dataViewModel, onItemClick = {})
+        }
+        val post = listOf(Post(1, "Test Title", "Test Body"))
+        dataViewModel.setUiState(UiState.Success(post))
 
-       composeTestRule.onNodeWithText("Test Title").assertIsDisplayed()
-   }
+        composeTestRule.onNodeWithText("Test Title").assertIsDisplayed()
+    }
 }

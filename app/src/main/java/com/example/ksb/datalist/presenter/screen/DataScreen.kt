@@ -74,8 +74,6 @@ fun DataList(data: List<Post>, onItemClick: (Post) -> Unit) {
 
 @Composable
 fun DataItem(post: Post, onItemClick: (Post) -> Unit) {
-    var text = remember { mutableStateOf("") }
-    val content = LocalContext.current
     Column(
         modifier = Modifier
             .padding(8.dp)
