@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.hiltAndroid)
     alias(libs.plugins.firebaseService)
     id("kotlin-parcelize")
+    id ("jacoco")
 }
 
 android {
@@ -29,10 +30,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String","BASE_URL","\"https://jsonplaceholder.typicode.com/\"")
+
         }
         debug {
-            buildConfigField("String","BASE_URL","\"https://jsonplaceholder.typicode.com/\"")
+            enableUnitTestCoverage = true
+
         }
     }
     compileOptions {
@@ -51,7 +53,13 @@ android {
         resources.excludes.add("META-INF/LICENSE-notice.md")
     }
 
+
 }
+
+jacoco{
+    toolVersion = "0.8.10"
+}
+
 
 dependencies {
 
