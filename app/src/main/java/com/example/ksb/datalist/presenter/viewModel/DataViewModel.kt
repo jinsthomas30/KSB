@@ -34,8 +34,4 @@ class DataViewModel @Inject constructor(val dataUseCase: DataUseCase) : ViewMode
             }
         }
     }
-
-    fun setUiState(state: UiState) {
-        _uiState.value = state
-    }
 }

@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.hiltAndroid)
     alias(libs.plugins.firebaseService)
     id("kotlin-parcelize")
-    id ("jacoco")
+    id("jacoco")
 }
 
 android {
@@ -21,7 +21,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String","BASE_URL","\"https://jsonplaceholder.typicode.com/\"")
+        buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
     }
 
     buildTypes {
@@ -34,7 +34,7 @@ android {
 
         }
         debug {
-            enableUnitTestCoverage  = true
+            enableUnitTestCoverage = true
 
         }
     }
@@ -57,7 +57,7 @@ android {
 
 }
 
-jacoco{
+jacoco {
     toolVersion = "0.8.10"
 }
 
@@ -101,4 +101,46 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)
+}
+
+
+
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn("testDebugUnitTest")
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    val fileFilter = listOf(
+        "**/R.class",
+        "**/R\$*.class",
+        "**/BuildConfig.*",
+        "**/Manifest*.*",
+        "**/*Test*.*",
+        "**/Hilt*.*",
+        "**/Dagger*.*",
+        "**/*_Factory*.*",
+        "**/*_MembersInjector*.*",
+        "**/hilt_aggregated_deps/**",
+        "**/dagger/**",
+        "**/com/example/ksb/ui/theme/**",
+        "**/com/example/ksb/datalist/presenter/state/**"
+    )
+
+    val debugTree = fileTree("$buildDir/tmp/kotlin-classes/debug") {
+        exclude(fileFilter)
+    }
+
+    val mainSrc = "$projectDir/src/main/java"
+
+    sourceDirectories.setFrom(files(mainSrc))
+    classDirectories.setFrom(files(debugTree))
+    executionData.setFrom(fileTree(buildDir) {
+        include(
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+        )
+    })
 }
