@@ -18,7 +18,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -57,7 +56,7 @@ fun DataScreen(onItemClick: (Post) -> Unit, dataViewModel: DataViewModel = hiltV
                     // a string without arguments
                     text = stringResource(R.string.app_name)
                 )
-            },scrollBehavior = scrollBehavior)
+            }, scrollBehavior = scrollBehavior)
         }, modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
     )
     { innerPadding ->
@@ -111,10 +110,10 @@ fun DataScreen(onItemClick: (Post) -> Unit, dataViewModel: DataViewModel = hiltV
 @Composable
 fun DataList(data: List<Post>, onItemClick: (Post) -> Unit) {
     LazyColumn {
-            items(data) { data ->
-                DataItem(data, onItemClick)
-            }
+        items(data) { data ->
+            DataItem(data, onItemClick)
         }
+    }
 
 
 }
