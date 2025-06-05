@@ -35,27 +35,27 @@ jobs:
       - name: Build project
         run: ./gradlew build
 
-      - name: Run Unit Tests with Coverage
-        run: ./gradlew testDebugUnitTestCoverage
-
-      - name: Generate JaCoCo Report
-        run: ./gradlew createDebugCoverageReport
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: app/build/reports/coverage/debug/report.xml
-          name: android-coverage
-          fail_ci_if_error: true
-
-#      - name: Run unit tests
-#        run: ./gradlew testDebugUnitTest
+#      - name: Run Unit Tests with Coverage
+#        run: ./gradlew testDebugUnitTestCoverage
 #
-#      - name: Upload to Firebase App Distribution
-#        uses: wzieba/Firebase-Distribution-Github-Action@v1
+#      - name: Generate JaCoCo Report
+#        run: ./gradlew createDebugCoverageReport
+#
+#      - name: Upload coverage to Codecov
+#        uses: codecov/codecov-action@v4
 #        with:
-#          appId: ${{ secrets.FIREBASE_APP_ID }}
-#          token: ${{ secrets.FIREBASE_TOKEN }}
-#          groups: Testers
-#          file: app/build/outputs/apk/debug/app-debug.apk
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          files: app/build/reports/coverage/debug/report.xml
+#          name: android-coverage
+#          fail_ci_if_error: true
+
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest
+
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          token: ${{ secrets.FIREBASE_TOKEN }}
+          groups: Testers
+          file: app/build/outputs/apk/debug/app-debug.apk

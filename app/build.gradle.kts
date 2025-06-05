@@ -33,7 +33,7 @@ android {
 
         }
         debug {
-            enableUnitTestCoverage = true
+            enableUnitTestCoverage  = true
 
         }
     }
