@@ -71,7 +71,7 @@ fun DataScreen(onItemClick: (Post) -> Unit, dataViewModel: DataViewModel = hiltV
                         if (searchQuery.isNotEmpty()) {
                             Icon(
                                 painter = painterResource(id = R.drawable.baseline_close_24),
-                                contentDescription = "",
+                                contentDescription = "clear button",
                                 tint = colorResource(R.color.teal_200),
                                 modifier = Modifier.clickable {
                                     searchQuery = ""
