@@ -17,11 +17,7 @@ class DataViewModel @Inject constructor(val dataUseCase: DataUseCase) : ViewMode
     private val _uiState = MutableStateFlow<UiState>(UiState.Loading)
     var uiState: StateFlow<UiState> = _uiState
 
-    init {
-        getData()
-    }
-
-    private fun getData() {
+     fun getData() {
         viewModelScope.launch {
             try {
                 dataUseCase().collect { networkState ->

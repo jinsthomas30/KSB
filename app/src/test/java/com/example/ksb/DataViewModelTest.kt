@@ -42,6 +42,7 @@ class DataViewModelTest {
         }
 
         viewModel = DataViewModel(dataUseCase)
+        viewModel.getData()
 
         viewModel.uiState.test {
             assert(awaitItem() is UiState.Loading)
@@ -50,6 +51,7 @@ class DataViewModelTest {
             cancelAndIgnoreRemainingEvents()
         }
     }
+
 
     @Test
     fun `uiState should emit Loading and Error when data fetch fails`() = runTest {
@@ -60,6 +62,7 @@ class DataViewModelTest {
         }
 
         viewModel = DataViewModel(dataUseCase)
+        viewModel.getData()
 
         viewModel.uiState.test {
 
@@ -81,6 +84,7 @@ class DataViewModelTest {
         }
 
         viewModel = DataViewModel(dataUseCase)
+        viewModel.getData()
 
         viewModel.uiState.test {
 
