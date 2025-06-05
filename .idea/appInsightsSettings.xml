@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.ksb" />
+                  <option name="mobileSdkAppId" value="1:418695302322:android:36b52a2e3ddde071a08dab" />
+                  <option name="projectId" value="ksbapp-99641" />
+                  <option name="projectNumber" value="418695302322" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

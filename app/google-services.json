@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "418695302322",
+    "project_id": "ksbapp-99641",
+    "storage_bucket": "ksbapp-99641.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418695302322:android:36b52a2e3ddde071a08dab",
+        "android_client_info": {
+          "package_name": "com.example.ksb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQVlZ_VlEJBQ6DEJdnCqIEEKUJsZ_3pWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

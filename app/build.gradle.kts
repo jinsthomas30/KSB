@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlinAndroidKsp)
     alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.firebaseService)
     id("kotlin-parcelize")
 }
 
@@ -70,6 +71,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    // Firebase service
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+
     //Retrofit using network calling
     implementation(libs.retrofit)
     //GSON using network conversion
