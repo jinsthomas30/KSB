@@ -35,6 +35,7 @@ jobs:
       - name: Build project
         run: ./gradlew build
 
+
 #      - name: Run Unit Tests with Coverage
 #        run: ./gradlew testDebugUnitTestCoverage
 #
