@@ -19,7 +19,6 @@ fun AppNavHost() {
                 navController.navigate(Screens.DATA_DETAILS.route)
             })
         }
-
         composable(route = Screens.DATA_DETAILS.route) {
             val postData =
                 navController.previousBackStackEntry?.savedStateHandle?.get<Post>("postData")
